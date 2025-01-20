@@ -4,7 +4,7 @@ import { CategoryProps } from '@/components/trend-analysis/trend-analysis.types'
 import {
   initialDashboardContext,
   useDashboardContext,
-} from '@/context/DashboardContext'
+} from '@/context/dashboard-context'
 import { DashboardContextProps } from '@/types/global-types'
 
 const MAX_DATA_POINTS = 8

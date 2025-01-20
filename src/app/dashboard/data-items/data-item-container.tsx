@@ -1,5 +1,5 @@
 import { DataItem } from '@/components/data-item'
-import { useDashboardContext } from '@/context/DashboardContext'
+import { useDashboardContext } from '@/context/dashboard-context'
 import { DashboardContextProps } from '@/types/global-types'
 
 export const DataItemContainer = () => {

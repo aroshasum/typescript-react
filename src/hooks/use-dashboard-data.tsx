@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { MockWebSocket } from '@/simulations/mock-server';
-import { useDashboardContext } from '@/context/DashboardContext';
+import { useDashboardContext } from '@/context/dashboard-context';
 
 export function useDashboardData() {
   const { state, updateState } = useDashboardContext();

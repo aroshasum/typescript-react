@@ -8,7 +8,7 @@ export const TrendAnalysis = () => {
   return (
     <Card className="w-full max-h-[550px]">
       <CardHeader className="p-4 pb-2 flex-row items-center ">
-        <CardTitle className="text-sm w-1/2">desktop Analysis</CardTitle>
+        <CardTitle className="text-sm w-1/2">Trend Analysis</CardTitle>
         <TrendSelect category={category} setCategory={setCategory} />
       </CardHeader>
       <CardContent className="p-4 h-full">

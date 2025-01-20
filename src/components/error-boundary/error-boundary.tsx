@@ -1,5 +1,4 @@
 import { Component, ReactNode } from 'react'
-import {Heading1} from 'lucide-react';
 
 interface Props {
   children: ReactNode
@@ -33,7 +32,7 @@ export class ErrorBoundary extends Component<Props, State> {
     const { children } = this.props
 
     if (hasError) {
-      return <Heading1>We are unavailable at the moment. Please try again later</Heading1>
+      return <div>We are unavailable at the moment. Please try again later</div>
     }
 
     return children

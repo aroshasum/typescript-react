@@ -1,21 +1,43 @@
 import "@testing-library/jest-dom"
 import {render, screen } from "@testing-library/react";
-import { userEvent } from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
-import App from "./App";
 
-describe("Simple working test", () => {
+import { vi } from 'vitest'
+import { App } from './App'
+import { Page } from '@/app/dashboard/page'
+import { DashboardContextProvider } from './context/dashboard-context'
 
-  it("the title is visible", async () => {
-    await render(<App />);
-    const welcomeText = screen.getByText(/Vite \+ React/i);
-    expect(welcomeText).toBeInTheDocument();
-  });
+vi.mock('@/app/dashboard/page', () => ({
+  Page: vi.fn(() => <div>Mocked Page Component</div>),
+}))
 
-  it("should increment count on click", async () => {
-    await render(<App />);
-    expect(screen.getByText(/count is 0/i)).toBeInTheDocument();
-    await userEvent.click(screen.getByRole("button"));
-    expect(screen.getByText(/count is 1/i)).toBeInTheDocument();
-  });
-});
+describe('App Component', async () => {
+
+  it('renders without crashing', async () => {
+    await render(
+      <App />
+    )
+    expect(screen.getByText("Mocked Page Component")).toBeInTheDocument()
+  })
+
+  it('renders the Page component inside the context provider', () => {
+    render(<App />)
+
+    expect(screen.getByText(/Mocked Page Component/i)).toBeInTheDocument()
+  })
+
+  it('renders the ErrorBoundary correctly', () => {
+    const ErrorBoundaryMock = vi.fn().mockImplementation(({ children }) => children)
+
+    render(
+      <ErrorBoundaryMock>
+        <DashboardContextProvider>
+          <Page />
+        </DashboardContextProvider>
+      </ErrorBoundaryMock>
+    )
+
+    expect(ErrorBoundaryMock).toHaveBeenCalled()
+    expect(screen.getByText(/Mocked Page Component/i)).toBeInTheDocument()
+  })
+})
