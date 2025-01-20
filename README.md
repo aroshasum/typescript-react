@@ -25,6 +25,7 @@
 - Responsive behavior
 - Simulated websocket data
 - Theme Changing Dark/Light
+- Connection status based on Network activity
 
 ![img](./preview.gif)
 
