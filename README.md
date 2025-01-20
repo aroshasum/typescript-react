@@ -18,6 +18,16 @@
 
 ## Implementation
 
+### Feature Details
+
+- Uses useContext for state management to avoid prop drilling
+- Unit test coverage
+- Responsive behavior
+- Simulated websocket data
+- Theme Changing Dark/Light
+
+![img](./preview.gif)
+
 ### Technical Details
 
 - Uses useState and useEffect for state management
@@ -26,4 +36,4 @@
 - Data visualization using Recharts
 - Uses shadcn/ui components for consistent styling
 
-![img](./interview.gif)
+
